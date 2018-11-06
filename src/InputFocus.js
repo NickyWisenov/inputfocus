@@ -47,7 +47,8 @@ interface IProps {
 }
 
 interface IState {
-  style : React.CSSProperties
+  style : React.CSSProperties,
+  submittedVal: string
 }
 /*
 make a 'component' of the button + inputs group, and draw different instances of it in canvas.
@@ -62,7 +63,7 @@ export default class InputFocus extends React.Component<IProps, IState> {
     super(props);
     // set initial state
     this.state = {
-      style: inputNormalStyle
+      style: inputNormalStyle,
     }
   }
 
@@ -78,16 +79,17 @@ export default class InputFocus extends React.Component<IProps, IState> {
     inputNode.value = "";
     inputNode.focus();
     this.setState({
-      style: inputNormalStyle
+      style: inputNormalStyle,
     })
   }
 
   handleSubmit = (evt) => {
     if(evt.key === 'Enter'){ // If the Enter key is pressed only
       if (evt.target.value !== "") {
-        console.log("Here")
+
         this.setState({
-          style: inputHighlightStyle
+          style: inputHighlightStyle,
+          submittedVal: evt.target.value
         })
       }
     }
@@ -104,7 +106,9 @@ export default class InputFocus extends React.Component<IProps, IState> {
           style={this.state.style}
           className="input" id="focus"
           ref={this.inputRef}
-          onKeyPress={this.handleSubmit} />);
+          onKeyPress={this.handleSubmit}
+          value={this.state.submittedVal}
+          />);
     }
     return inputFields;
   }
