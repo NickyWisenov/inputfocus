@@ -12,10 +12,10 @@ class App extends React.Component {
         </header>
 
         <div className="App-div">
-          <InputFocus text="A"/>
-          <InputFocus text="B"/>
-          <InputFocus text="C"/>
-          <InputFocus text="D"/>
+          <InputFocus text="A" inputsNum="1" />
+          <InputFocus text="B" inputsNum="2" />
+          <InputFocus text="C" inputsNum="3" />
+          <InputFocus text="D" inputsNum="4" />
         </div>
       </div>
     );
