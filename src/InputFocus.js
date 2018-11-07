@@ -76,21 +76,15 @@ export default class InputFocus extends React.Component<IProps, IState> {
   };
 
   changeFocus = () => {
-    for(let inputEle of document.getElementsByClassName("input_"+ this.props.text)) {
-      inputEle.value = "";
-    }
-    
-    const inputNode = this.inputRef.current;
-    inputNode.value = "";
-    inputNode.focus();
 
+    document.getElementById("input_"+ this.props.text + "_0").focus();
     this.setState({
       style: inputNormalStyle,
     })
   }
 
   handleSubmit = (evt) => {
-    if(evt.key === 'Enter'){ // If the Enter key is pressed only
+
       if (evt.target.value !== "") {
         for(let inputEle of document.getElementsByClassName("input_"+ this.props.text)) {
           inputEle.value = evt.target.value;
@@ -99,7 +93,7 @@ export default class InputFocus extends React.Component<IProps, IState> {
           style: inputHighlightStyle,
         })
       }
-    }
+
   }
 
   createInputs = () => {
@@ -112,10 +106,10 @@ export default class InputFocus extends React.Component<IProps, IState> {
           key={this.props.text + "_input_" + i}
           type="text"
           style={this.state.style}
+          id= {"input_" + this.props.text + "_" + i}
           className={"input input_" + this.props.text} 
-          id="focus"
           ref={this.inputRef}
-          onKeyPress={this.handleSubmit}
+          onBlur={this.handleSubmit}
         />);
     }
     return inputFields;
