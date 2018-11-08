@@ -1,6 +1,6 @@
 import * as React from 'react';
-import InputFocus from './InputFocus';
 import './App.css';
+import TextFields from './TextFields';
 
 
 class App extends React.Component {
@@ -12,10 +12,10 @@ class App extends React.Component {
         </header>
 
         <div className="App-div">
-          <InputFocus text="A" inputsNum="1" />
-          <InputFocus text="B" inputsNum="2" />
-          <InputFocus text="C" inputsNum="3" />
-          <InputFocus text="D" inputsNum="4" />
+            <TextFields textfieldsNum="1" />
+            <TextFields textfieldsNum="2" />
+            <TextFields textfieldsNum="3" />
+            <TextFields textfieldsNum="4" />
         </div>
       </div>
     );

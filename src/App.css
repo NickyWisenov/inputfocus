@@ -29,8 +29,12 @@
 
 
 .App-div {
-  background-color: rgb(238, 238, 238);
-  padding-top: 138px;
+  background-color: #ffffff;
   padding-bottom: 21px;
-  height: 12vh;
+  height: 80vh;
+  text-align: left;
+  padding-left: 100px
 }
+
+
+
