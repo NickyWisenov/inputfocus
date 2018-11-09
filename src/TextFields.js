@@ -25,7 +25,8 @@ export default class TextFields extends React.Component {
         this.state = {
             text: "",
             focused: true,
-            key: ""
+            key: "",
+            backgroundColor: null
         }
 
         this.refs = React.createRef();
@@ -44,8 +45,14 @@ export default class TextFields extends React.Component {
             textfield.input_.value = this.state.text;
             if (this.state.text === "") {
                 textfield.label_.float(false);
+                this.setState({
+                    backgroundColor: "whitesmoke",
+                })
             } else {
                 textfield.label_.float(true);
+                this.setState({
+                    backgroundColor: "#ff3af2ad",
+                })
             }
         }
     }
@@ -62,6 +69,7 @@ export default class TextFields extends React.Component {
         for (let i = 0; i < this.props.textfieldsNum; i++) {
             textfields.push(
                 <TextField
+                    style={{backgroundColor: this.state.backgroundColor}}
                     key={i}
                     className="textfield"
                     ref={"textRef" + i}
